@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteCond %{SERVER_PORT} !^443$
+RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+RewriteBase /
+
+ErrorDocument 404  /error404.php
+RewriteRule ^reset/([a-zA-Z0-9]+)$ reset.php?id=$1 [L]
+RewriteRule ^game/([a-zA-Z0-9]+)$ game.php?id=$1 [L]
